@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "workspaceName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameters for updating a machine learning workspace.",
+            "properties": {
+                "properties": {
+                    "description": "The properties that the machine learning workspace will be updated with.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "keyVaultIdentifierId": {
+                            "description": "The key vault identifier used for encrypted workspaces.",
+                            "type": "string"
+                        },
+                        "workspaceState": {
+                            "description": "The current state of workspace resource.",
+                            "enum": [
+                                "Deleted",
+                                "Enabled",
+                                "Disabled",
+                                "Migrated",
+                                "Updated",
+                                "Registered",
+                                "Unregistered"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "WorkspaceState"
+                            }
+                        }
+                    }
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The resource tags for the machine learning workspace.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
